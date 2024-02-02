@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Tektur&family=Ysabeau+SC:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Age Calculator</title>
+</head>
+<style>
+     body {
+        background-color: rgb(0, 0, 0);
+        color: rgb(84, 163, 0);
+        font-family: 'Ysabeau SC', sans-serif;
+
+    }
+     .main {
+        border: 5px solid rgb(169, 235, 55);
+        background-color: rgb(25, 59, 8);
+        position: absolute;
+        left: 25%;
+        width: 50%;
+        
+
+    }
+    button{
+        position: relative;
+        left: 42%;
+        padding: 5px 30px;
+        background-color:rgb(95, 150, 0);
+        border: 3px solid rgb(38, 56, 5);
+        border-radius: 5px;
+        color: rgb(38, 56, 5);
+        font-weight: bold;
+        font-size: 17px;
+        cursor: pointer;
+        margin-top: 10px;
+
+    }
+    button:active {
+        background-color: rgb(156, 215, 53);
+        color: rgb(32, 56, 20);
+    }
+    input{
+        position: relative;
+        left: 37%;
+    }
+    h2{
+        padding:0%;
+        position: relative;
+        left: 23%;
+    }
+    span{
+        color: rgb(255, 0, 132);
+        padding-left: 20px;
+    }
+     h2 i{
+        color: rgb(8, 121, 0);
+        margin-right: 20px;
+    }
+    input{
+        background-color: rgb(17, 51, 0);
+        border: 2px solid rgb(95, 150, 0);
+        border-radius: 20px;
+        padding: 7px;
+        font-size: 16px;
+        color: rgb(169, 235, 55);
+        width: 25%;
+        font-family: 'Ysabeau SC', sans-serif;
+        font-weight: bold;
+
+        
+    }
+    ::-webkit-input-placeholder {
+        color: rgb(103, 152, 6);
+    }
+</style>
+
+<body>
+
+
+
+
+    <div class="main">
+        <h1 align="center">Age Calculator</h1>
+
+        <h3 align="center">Enter Your Birth Date</h3>
+       
+        <input type="date" id="birthday" >
+
+        <h3 align="center">To</h3>
+
+
+            <input type="date" id="today" >
+
+        <br>
+
+        <button onclick="calc()">Calculate</button>
+
+        <h2><i class="bi bi-stars"></i>Year:<span id="result1"></span></h2>
+        <h2><i class="bi bi-stars"></i>Month:<span id="result2"></span></h2>
+        <h2><i class="bi bi-stars"></i>Days:<span id="result3"></span></h2>
+        <h6 align="center">by @_Aakash__Ap_</h6>
+
+        
+    </div> 
+    <script>
+
+        function calc() {
+
+            let birthday=document.getElementById("birthday").value
+            let today=document.getElementById("today").value
+
+            let date1=new Date(birthday)
+            let date2=new Date(today)
+
+            // let MDay=date1-date2
+
+            let month1=date1.getMonth()
+            let month2=date2.getMonth()
+
+            let year1=date1.getFullYear()
+            let year2=date2.getFullYear()
+
+            let day1=date1.getDay()
+            let day2=date2.getDay()
+
+            let months=Math.abs(month1-month2)
+            let years=Math.abs(year1-year2)
+            let days=Math.abs(day1-day2)
+
+            document.getElementById("result1").innerHTML=Math.round(years)+ 'Years'
+            document.getElementById("result2").innerHTML=Math.round(months)+ 'Months'
+            document.getElementById("result3").innerHTML=Math.round(days)+ 'Days'
+
+        }
+        
+    </script>
+
+
+</body>
+
+</html>

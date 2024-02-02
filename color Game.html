@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+
+    .main {
+        width: 700px;
+        height: 550px;
+        border: 2px solid rgb(0, 0, 0);
+        background-color: rgb(62, 255, 255);
+    }
+
+    .box {
+        width: 500px;
+        height: 300px;
+        outline: 2px solid rgb(0, 0, 0);
+        position: relative;
+        left: 14%;
+        top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-family: 'Press Start 2P', cursive;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        
+    }
+    #name2{
+        padding-bottom: 16%;
+    }
+
+    label {
+        padding: 0px 30px 10px 0px;
+
+    }
+
+    .radioBtn {
+        position: relative;
+        left: 8%;
+        top: 13%;
+    }
+
+    .button {
+        position: relative;
+        left: 32%;
+        top: 10%;
+    }
+
+    h1 {
+        position: relative;
+        top: 15%;
+      
+        text-align: center;
+       
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 0px 20px;
+    }
+
+    
+</style>
+
+<body>
+    <div class="main">
+        <div id="box" class="box"><h1 id="name2">START GAME</h1></div>
+
+        <div class="button">
+            <button onclick="start()" id="start">START</button>
+            <button onclick="stop()" id="stop" disabled>STOP</button>
+        </div>
+        <br>
+        <div class="radioBtn">
+            <input type="radio" name="color" value="red" id="red"> <label for="red">RED</label>
+            <input type="radio" name="color" value="yellow" id="yellow"> <label for="yellow">YELLOW</label>
+            <input type="radio" name="color" value="green" id="green"> <label for="green">GREEN</label>
+            <input type="radio" name="color" value="pink" id="pink"> <label for="pink">PINK</label>
+            <input type="radio" name="color" value="black" id="black"> <label for="black">BLACK</label>
+
+            <br>
+
+            <input type="radio" name="color" value="gray" id="gray"> <label for="gray">GRAY</label>
+            <input type="radio" name="color" value="blueviolet" id="blueviolet"><label for="blueviolet">BLUEVIOLET</label>
+            <input type="radio" name="color" value="orange" id="orange"> <label for="orange">ORANGE</label>
+            <input type="radio" name="color" value="brown" id="brown"> <label for="brown">BROWN</label>
+            <input type="radio" name="color" value="blue" id="blue"> <label for="blue">BLUE</label>
+        </div>
+
+        <h1 id="result"></h1>
+    </div>
+
+    <script>
+        var interval;
+        var color = ["red", "yellow", "green", "pink", "black", "gray", "blueviolet", "orange", "brown", "blue"];
+        var selectedColor = "";
+
+        function start() {
+           
+            result.style.display="none";
+            document.getElementById("name2")
+            name2.style.display="none"
+            interval = setInterval(changeColor, 200);
+            document.getElementById("stop").disabled = false;
+          
+        }
+        
+        function changeColor() {
+            let box = document.getElementById("box");
+            let i = Math.floor(Math.random() * color.length);
+            box.style.backgroundColor = color[i];
+        }
+        
+        function stop() {
+
+            clearInterval(interval);
+
+            result.style.display="block"
+
+            let col = document.getElementsByName('color');
+            for (let i = 0; i < col.length; i++) {
+                if (col[i].checked) {
+                    selectedColor = col[i].value;
+                    break;
+                }
+            }
+            
+            if (selectedColor) {
+            document.getElementById("stop").disabled = true;
+                
+                let boxColor = document.getElementById("box").style.backgroundColor;
+                result=document.getElementById("result")
+
+                if (selectedColor === boxColor) {
+                    result.style.color="green"
+                    document.getElementById("result").innerText = "You win!!";
+                    
+
+                } else {
+                    result.style.color="red"
+                    document.getElementById("result").innerText = "You lose!!";
+                }
+            } else {
+                result.style.color="blue" 
+                document.getElementById("result").innerText = "!! Please choose eny one color !!";
+                
+            }
+
+            // document.getElementById("stop").disabled = true;
+        }
+    </script>
+</body>
+
+</html>

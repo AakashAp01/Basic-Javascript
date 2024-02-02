@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(0, 0, 0);
+        transition: 0.9s;
+    }
+
+    #img_div {
+        border: 2px solid rgb(251, 0, 255);
+        width: 50%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+        object-fit: cover;
+
+    }
+
+    #div_1 {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.9s;
+        
+        border-radius: 10px;
+    }
+
+    button {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        font-size: 30px;
+        border: none;
+        color: rgb(251, 0, 255);
+        background-color: rgb(0, 0, 0);
+        border-radius: 50%;
+        border: 2px solid rgb(251, 0, 255);
+
+    }
+
+    button:active {
+       
+        color: rgb(0, 0, 0);
+        background-color: rgb(230, 0, 255);
+
+
+    }
+
+
+    .Img {
+
+        width: 100%;
+        height: 100%;
+        animation-duration: 1s;
+        animation-name: animate-blur;
+        animation-timing-function: ease;
+
+
+
+    }
+
+
+
+    @keyframes animate-blur {
+        0%{
+            opacity: 0;
+            filter: blur(15px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0px);
+        }
+    }
+
+    #stop{
+        position: absolute;
+        top: 72%; 
+        left: 48%; 
+    }
+    #btn_left{
+        position: absolute;
+        top: 72%; 
+        left: 42%; 
+
+    }
+
+    #btn_right{
+        position: absolute;
+        top: 72%; 
+        left: 54%; 
+
+    }
+</style>
+
+<body>
+    
+    <h1 style="text-align: center; color: rgb(251, 0, 255); border: 2px solid rgb(230, 0, 255);"> Image Slider</h1>
+
+
+    <div id="div_1">
+        <button id="btn_left" onclick="leftBtn()"> <i class="bi bi-caret-left-fill"></i></i></button>
+
+        <div id="img_div">
+            <img src="pics/orange-day-lily-8102708.jpg" alt="" id="img" class="Img">
+        </div>
+
+
+        <button id="btn_right" onclick="rightBtn()"><i class="bi bi-caret-right-fill"></i></button>
+
+        <button onclick="stop()" id="stop"><i class="bi bi-stop-fill"></i></button>
+    </div>
+
+
+
+    <script>
+
+
+        
+        let Img = document.getElementById("img")
+        let cIndx =1
+        let photos = []
+        let status = true;
+
+        photos[0] = "pics/bird-8083971.jpg";
+        photos[1] = "pics/fauna-8064270.jpg";
+        photos[2] = "pics/wild-bee-8058943.jpg"
+        photos[3] = "pics/flower-8077948.jpg"
+        photos[4] = "pics/orange-day-lily-8102708.jpg"
+        photos[5] = "pics/plant-8111735.jpg"
+        photos[6] = "pics/tree-832079_1920.jpg"
+
+
+
+        var timer=setInterval(leftBtn, 400);
+        
+        function leftBtn() {
+            
+            var Img = document.getElementById("img")
+
+            if (cIndx >= photos.length) {
+                cIndx = 0;
+
+            }
+            Img.src = photos[cIndx];
+            cIndx++;
+
+        }
+       
+
+        function rightBtn() {
+
+            if (cIndx >= photos.length) {
+                cIndx = 0;
+
+            }
+            Img.src = photos[cIndx];
+            cIndx--;
+
+        }
+
+        function stop(){
+
+            console.log(status);
+
+            if(status==true)
+            {
+                status = false;
+                clearInterval(timer);
+            }
+                else
+            {
+                status = true;
+                timer=setInterval(leftBtn,400);
+            }
+                    
+        }
+
+   
+            
+        
+    
+
+
+    </script>
+
+</body>
+
+</html>

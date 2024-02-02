@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Tektur&display=swap" rel="stylesheet">
+    <title>Interest Calculator</title>
+</head>
+<style>
+    body {
+        background-color: rgb(255, 255, 255);
+        color: rgb(131, 0, 254);
+        font-family: 'Tektur', cursive;
+
+
+    }
+
+    .main {
+        border: 5px solid rgb(131, 0, 254);
+        background-color: rgb(3, 3, 42);
+        position: absolute;
+        left: 25%;
+        width: 50%;
+        
+
+    }
+
+    .result {
+        position: relative;
+        top: 60%;
+    }
+
+    .input {
+        position: relative;
+        left: 37%;
+        
+    }
+
+    ::-webkit-input-placeholder {
+        color: rgb(119, 0, 255);
+     
+
+    }
+
+
+    input {
+        padding: 5px;
+        color: rgb(131, 0, 254);
+        border: 1px solid rgb(131, 0, 254);
+        background-color: rgb(48, 48, 125);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius:10px 0px 10px 0px;
+        font-family: 'Tektur', cursive;
+        
+
+    }
+  
+
+    input:focus {
+        background-color: rgb(23, 53, 142);
+    }
+
+    label {
+        margin-bottom: bottom 10px;
+    }
+
+    p {
+        position: relative;
+        left: 37%;
+        font-weight: bold;
+    }
+
+    button {
+        border: 2px solid rgb(131, 0, 254);
+        border-radius: 5px;
+        margin: 20px;
+        font-size: 18px;
+        font-family: 'Tektur', cursive;
+        background-color: rgb(3, 3, 42);
+        color: rgb(131, 0, 254);
+        position: relative;
+        left: 3%;
+        cursor: pointer;
+
+    }
+
+    button:active {
+        background-color: rgb(131, 0, 254);
+        color: rgb(3, 3, 42);
+    }
+
+    span{
+        color: red;
+    }
+    h6{
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <div class="main">
+
+        <h1 align="center">Interest Calculator</h1>
+
+        <div class="input">
+
+            <label for="amount">Amount:</label> <br>
+            <input type="number" id="amount" placeholder="Enter Amount...">
+
+            <br>
+
+            <label for="rate">Rate(%):</label> <br>
+            <input type="number" id="rate" placeholder="Enter Rate(%)...">
+
+            <br>
+
+            <label for="time">Time:</label> <br>
+          
+            <input type="date" id="time1st"> TO 
+            <input type="date" id="time2nd"> 
+
+            <br>
+
+            <button onclick="result()">Calculate</button>
+        </div>
+
+
+        <div class="result">
+
+            <p> Amount : <span id="result1"></span></p>
+            <p> Total Interest : <span id="result2"></span></p>
+            <p> Total Amount : <span id="result3"></span></p>
+        </div>
+        <h6 align="center">by @_Aakash__Ap_</h6>
+    </div>
+
+    <script>
+
+        function result() {
+
+            let amount = parseInt(document.getElementById("amount").value);
+            let rate = parseInt(document.getElementById("rate").value);
+            
+            let T1=(document.getElementById("time1st").value);
+            let T2=(document.getElementById("time2nd").value);
+
+            let dateOne=new Date(T1);
+            let dateTwo=new Date(T2);
+
+            let sec1=dateOne.getTime()
+            let sec2=dateTwo.getTime()
+
+            let totalSec=sec1-sec2
+
+            let year=totalSec/31556952000
+            let FY=year*-1
+
+            
+            let InterestValue = amount * rate *  FY / 100;
+
+            let TotalValue = InterestValue + amount
+
+            document.getElementById("result1").innerHTML = amount
+            document.getElementById("result2").innerHTML = Math.round(InterestValue)
+            document.getElementById("result3").innerHTML = Math.round(TotalValue)    
+            
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
