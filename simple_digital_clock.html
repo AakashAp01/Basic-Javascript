@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <title>Digital-Clock</title>
+  </head>
+  <style>
+    body{
+        display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .clock {
+     
+      /* height: 50vh; */
+      /* width: 50vw; */
+      font-size: 25vh;
+      font-family: "Anta", sans-serif;
+    }
+    #day{
+        position: absolute;
+        top: 50vh;
+        left:95vh ;
+        font-size: 5vh;
+      font-family: "Anta", sans-serif;
+
+    }
+  </style>
+  <body>
+    <div class="main">
+      <p class="clock" id="p1"></p>
+      <!-- <hr> -->
+      <p class="" id="day"></p>
+
+      <!-- <button onclick="clock()">click</button> -->
+    </div>
+
+    <script>
+       function clock() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            // let mseconds = now.getMilliseconds();
+            let time = hours + ":" + minutes + ":" + seconds;
+            let clockElement = document.getElementById('p1');
+            clockElement.innerHTML = time;
+            
+            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            let day=weekday[now.getDay()];
+            let dayElement = document.getElementById('day');
+            dayElement.innerHTML = day;
+        }
+
+        clock();
+
+        setInterval(clock,1)
+
+        
+    </script>
+  </body>
+</html>
