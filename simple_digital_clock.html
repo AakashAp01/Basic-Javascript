@@ -31,10 +31,8 @@
   <body>
     <div class="main">
       <p class="clock" id="p1"></p>
-      <!-- <hr> -->
       <p class="" id="day"></p>
 
-      <!-- <button onclick="clock()">click</button> -->
     </div>
 
     <script>
@@ -43,7 +41,6 @@
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
-            // let mseconds = now.getMilliseconds();
             let time = hours + ":" + minutes + ":" + seconds;
             let clockElement = document.getElementById('p1');
             clockElement.innerHTML = time;
@@ -57,6 +54,8 @@
         clock();
 
         setInterval(clock,1)
+
+          
 
         
     </script>
