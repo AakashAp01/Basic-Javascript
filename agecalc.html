@@ -7,138 +7,140 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Tektur&family=Ysabeau+SC:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Age Calculator</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #f9f9f9;
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px 40px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+
+        h3 {
+            margin: 15px 0;
+            color: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #ffcc00;
+        }
+
+        h2 i {
+            color: #1affd5;
+        }
+
+        span {
+            color: #00e6e6;
+        }
+
+        input[type="date"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #333;
+            color: #f9f9f9;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="date"]::placeholder {
+            color: #888;
+        }
+
+        button {
+            padding: 10px 30px;
+            margin-top: 20px;
+            background: linear-gradient(90deg, #ff8c00, #ffcc00);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.5);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #ffd700, #ffa500);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        h6 {
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
 </head>
-<style>
-     body {
-        background-color: rgb(0, 0, 0);
-        color: rgb(84, 163, 0);
-        font-family: 'Ysabeau SC', sans-serif;
-
-    }
-     .main {
-        border: 5px solid rgb(169, 235, 55);
-        background-color: rgb(25, 59, 8);
-        position: absolute;
-        left: 25%;
-        width: 50%;
-        
-
-    }
-    button{
-        position: relative;
-        left: 42%;
-        padding: 5px 30px;
-        background-color:rgb(95, 150, 0);
-        border: 3px solid rgb(38, 56, 5);
-        border-radius: 5px;
-        color: rgb(38, 56, 5);
-        font-weight: bold;
-        font-size: 17px;
-        cursor: pointer;
-        margin-top: 10px;
-
-    }
-    button:active {
-        background-color: rgb(156, 215, 53);
-        color: rgb(32, 56, 20);
-    }
-    input{
-        position: relative;
-        left: 37%;
-    }
-    h2{
-        padding:0%;
-        position: relative;
-        left: 23%;
-    }
-    span{
-        color: rgb(255, 0, 132);
-        padding-left: 20px;
-    }
-     h2 i{
-        color: rgb(8, 121, 0);
-        margin-right: 20px;
-    }
-    input{
-        background-color: rgb(17, 51, 0);
-        border: 2px solid rgb(95, 150, 0);
-        border-radius: 20px;
-        padding: 7px;
-        font-size: 16px;
-        color: rgb(169, 235, 55);
-        width: 25%;
-        font-family: 'Ysabeau SC', sans-serif;
-        font-weight: bold;
-
-        
-    }
-    ::-webkit-input-placeholder {
-        color: rgb(103, 152, 6);
-    }
-</style>
 
 <body>
-
-
-
-
     <div class="main">
-        <h1 align="center">Age Calculator</h1>
-
-        <h3 align="center">Enter Your Birth Date</h3>
-       
-        <input type="date" id="birthday" >
-
-        <h3 align="center">To</h3>
-
-
-            <input type="date" id="today" >
-
-        <br>
-
+        <h1><i class="bi bi-calendar-event-fill"></i> Age Calculator</h1>
+        <h3>Enter Your Birth Date</h3>
+        <input type="date" id="birthday">
+        <h3>To</h3>
+        <input type="date" id="today">
         <button onclick="calc()">Calculate</button>
+        <h2><i class="bi bi-stars"></i> Years: <span id="result1"></span></h2>
+        <h2><i class="bi bi-stars"></i> Months: <span id="result2"></span></h2>
+        <h2><i class="bi bi-stars"></i> Days: <span id="result3"></span></h2>
+        <h6>@_Aakash__Ap_</h6>
+    </div>
 
-        <h2><i class="bi bi-stars"></i>Year:<span id="result1"></span></h2>
-        <h2><i class="bi bi-stars"></i>Month:<span id="result2"></span></h2>
-        <h2><i class="bi bi-stars"></i>Days:<span id="result3"></span></h2>
-        <h6 align="center">by @_Aakash__Ap_</h6>
-
-        
-    </div> 
     <script>
-
         function calc() {
+            let birthday = document.getElementById("birthday").value;
+            let today = document.getElementById("today").value;
 
-            let birthday=document.getElementById("birthday").value
-            let today=document.getElementById("today").value
+            let date1 = new Date(birthday);
+            let date2 = new Date(today);
 
-            let date1=new Date(birthday)
-            let date2=new Date(today)
+            let years = date2.getFullYear() - date1.getFullYear();
+            let months = date2.getMonth() - date1.getMonth();
+            let days = date2.getDate() - date1.getDate();
 
-            // let MDay=date1-date2
+            if (days < 0) {
+                months--;
+                days += new Date(date2.getFullYear(), date2.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
 
-            let month1=date1.getMonth()
-            let month2=date2.getMonth()
-
-            let year1=date1.getFullYear()
-            let year2=date2.getFullYear()
-
-            let day1=date1.getDay()
-            let day2=date2.getDay()
-
-            let months=Math.abs(month1-month2)
-            let years=Math.abs(year1-year2)
-            let days=Math.abs(day1-day2)
-
-            document.getElementById("result1").innerHTML=Math.round(years)+ 'Years'
-            document.getElementById("result2").innerHTML=Math.round(months)+ 'Months'
-            document.getElementById("result3").innerHTML=Math.round(days)+ 'Days'
-
+            document.getElementById("result1").innerHTML = years + ' Years';
+            document.getElementById("result2").innerHTML = months + ' Months';
+            document.getElementById("result3").innerHTML = days + ' Days';
         }
-        
     </script>
-
-
 </body>
 
 </html>

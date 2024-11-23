@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
-    <title>Digital-Clock</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+  <title>Digital Clock</title>
   <style>
-    body{
-        display: flex;
-      align-items: center;
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
       justify-content: center;
-    }
-    .clock {
-     
-      /* height: 50vh; */
-      /* width: 50vw; */
-      font-size: 25vh;
+      align-items: center;
+      height: 100vh;
       font-family: "Anta", sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #ffffff;
     }
-    #day{
-        position: absolute;
-        top: 50vh;
-        left:95vh ;
-        font-size: 5vh;
-      font-family: "Anta", sans-serif;
 
+    .main {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .clock {
+      font-size: 8vh;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    #day {
+      font-size: 3vh;
+      margin: 5px 0 20px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn button {
+      font-size: 2vh;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background: #4caf50;
+      color: #ffffff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn button:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+
+    .btn button:nth-child(2) {
+      background: #f44336;
+    }
+
+    .btn button:nth-child(2):hover {
+      background: #e53935;
     }
   </style>
-  <body>
-    <div class="main">
-      <p class="clock" id="p1"></p>
-      <p class="" id="day"></p>
-
+</head>
+<body>
+  <div class="main">
+    <p class="clock" id="p1">00:00:00</p>
+    <p id="day">Sunday</p>
+    <div class="btn">
+      <button onclick="on()">Start</button>
+      <button onclick="stop()">Stop</button>
     </div>
+    <small>@_Aakash__Ap_</small>
+  </div>
 
-    <script>
-       function clock() {
-            let now = new Date();
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            let time = hours + ":" + minutes + ":" + seconds;
-            let clockElement = document.getElementById('p1');
-            clockElement.innerHTML = time;
-            
-            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            let day=weekday[now.getDay()];
-            let dayElement = document.getElementById('day');
-            dayElement.innerHTML = day;
-        }
+  <script>
+    let myinterval;
 
-        clock();
+    function clock() {
+      let now = new Date();
+      let hours = String(now.getHours()).padStart(2, '0');
+      let minutes = String(now.getMinutes()).padStart(2, '0');
+      let seconds = String(now.getSeconds()).padStart(2, '0');
+      let time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById('p1').innerHTML = time;
 
-        setInterval(clock,1)
+      const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let day = weekday[now.getDay()];
+      document.getElementById('day').innerHTML = day;
+    }
 
-          
+    function on() {
+      clock(); // Ensure the clock updates instantly on start
+      myinterval = setInterval(clock, 1000);
+    }
 
-        
-    </script>
-  </body>
+    function stop() {
+      clearInterval(myinterval);
+    }
+
+    // Initialize clock display
+    clock();
+  </script>
+</body>
 </html>

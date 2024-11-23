@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importing Roboto font -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            height: 100vh;
+            width: 100vw;
+            gap: 10px;
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 0;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-item:nth-child(1) { 
+            background: linear-gradient(135deg, #FF6347, #FF4500); 
+        }
+        .menu-item:nth-child(2) { 
+            background: linear-gradient(135deg, #1E90FF, #00BFFF); 
+        }
+        .menu-item:nth-child(3) { 
+            background: linear-gradient(135deg, #32CD32, #00FF7F); 
+        }
+        .menu-item:nth-child(4) { 
+            background: linear-gradient(135deg, #FFD700, #FF8C00); 
+        }
+        .menu-item:nth-child(5) { 
+            background: linear-gradient(135deg, #FF4500, #FF6347); 
+        }
+        .menu-item:nth-child(6) { 
+            background: linear-gradient(135deg, #8A2BE2, #4B0082); 
+        }
+        .menu-item:nth-child(7) { 
+            background: linear-gradient(135deg, #FF1493, #FF69B4); 
+        }
+        .menu-item:nth-child(8) { 
+            background: linear-gradient(135deg, #00BFFF, #1E90FF); 
+        }
+        .menu-item:nth-child(9) { 
+            background: linear-gradient(135deg, #ADFF2F, #32CD32); 
+        }
+        .menu-item:nth-child(10) { 
+            background: linear-gradient(135deg, #FF69B4, #FF1493); 
+        }
+    </style>
+</head>
+<body>
+    <a href="agecalc.html" class="menu-item">AGE CALCULATOR</a>
+    <a href="otp.html" class="menu-item">OTP GENERATOR</a>
+    <a href="interestcalc.html" class="menu-item">INTEREST CALCULATOR</a>
+    <a href="ImgSlider.html" class="menu-item">IMAGE SLIDER</a>
+    <a href="simple_digital_clock.html" class="menu-item">DIGITAL CLOCK</a>
+    <a href="customCSS.HTML" class="menu-item">CSS IN HTML</a>
+    <a href="color_clash_game.html" class="menu-item">COLOR CLASH</a>
+    <a href="bgchange.html" class="menu-item">BACKGROUND CHANGE BY COLOR CODE</a>
+    <a href="animation.html" class="menu-item">ANIMATION</a>
+    <a href="add_element_by_jquery.html" class="menu-item">JQUERY ELEMENT APPEND</a>
+
+    <script>
+        window.onload = function() {
+            let menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+                let randomSize = Math.floor(Math.random() * (400 - 100 + 1)) + 100;
+                item.style.width = randomSize + 'px';
+                item.style.height = randomSize + 'px';
+                
+                let fontSize = Math.floor(randomSize / 8);
+                item.style.fontSize = fontSize + 'px';
+            });
+        }
+    </script>
+</body>
+</html>

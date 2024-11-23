@@ -6,153 +6,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <title>OTP generator</title>
+    <title>OTP Generator</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 0, 153);
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        .main {
+            border: 4px solid blueviolet;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: black;
+            outline: 3px solid rgb(212, 10, 131);
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .otp {
+            font-size: 2rem;
+            font-weight: 100;
+            margin: 20px 0;
+        }
+
+        #otp {
+            color: blueviolet;
+        }
+
+        button {
+            font-family: 'Press Start 2P', cursive;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: rgb(212, 10, 131);
+            background-color: rgb(79, 0, 153);
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0px 3px rgb(255, 35, 167);
+            font-weight: 100;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .input {
+            margin: 20px 0;
+        }
+
+        input {
+            font-family: 'Press Start 2P', cursive;
+            color: blueviolet;
+            font-size: 20px;
+            width: 50%;
+            padding: 10px;
+            border: 3px solid rgb(212, 10, 131);
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: blueviolet;
+            font-size: 16px;
+        }
+
+        ::-webkit-input-placeholder {
+            font-size: 16px;
+            color: blueviolet;
+        }
+
+        button:active {
+            background-color: rgb(193, 0, 116);
+            color: blueviolet;
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 10px;
+            color: rgb(153, 2, 92);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .main {
+                width: 95%;
+                padding: 15px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+
+            input {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .otp {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .otp {
+                font-size: 1.2rem;
+            }
+
+            button {
+                font-size: 10px;
+                padding: 6px 12px;
+            }
+
+            input {
+                font-size: 14px;
+                padding: 6px;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
-<style>
-    body {
-        background-color: rgb(0, 0, 0);
-        color: rgb(255, 0, 153);
-        font-family: 'Press Start 2P', cursive;
-
-    }
-
-    .main {
-        border: 4px solid blueviolet;
-        width: 40%;
-        position: absolute;
-        left: 30%;
-        height: 450px;
-        outline: 3px solid rgb(212, 10, 131);
-
-    }
-
-    .otp {
-        font-size: 40PX;
-        position: relative;
-        left: 29%;
-        bottom: -3%;
-        font-weight: 100;
-        width: 250px;
-        height: 80px;
-
-
-
-
-    }
-
-    #otp {
-        color: blueviolet;
-
-    }
-
-    button {
-        font-family: 'Press Start 2P', cursive;
-        padding: 10px 10px;
-        font-size: 17px;
-        color: rgb(212, 10, 131);
-        background-color: rgb(79, 0, 153);
-        position: relative;
-        top: 20%;
-        left: 19%;
-        cursor: pointer;
-        border-radius: 5px;
-        border: none;
-        box-shadow: 0px 3px rgb(255, 35, 167);
-        font-weight: 100;
-
-
-
-    }
-
-    .input {
-
-        position: relative;
-        left: 35%;
-        top: 5%;
-        width: 160px;
-        height: 40px;
-    }
-
-    input {
-        font-family: 'Press Start 2P', cursive;
-        color: blueviolet;
-
-        position: static;
-        font-size: 30px;
-        width: 100%;
-        height: 100%;
-        border: 5px solid rgb(212, 10, 131);
-    }
-
-    h2 {
-        position: relative;
-        top: 25%;
-        color: blueviolet;
-
-    }
-
-    ::-webkit-input-placeholder {
-        font-size: 25px;
-        color: blueviolet;
-
-    }
-
-    button:active {
-        background-color: rgb(193, 0, 116);
-        color: blueviolet;
-        transform: translateY(4px);
-        box-shadow: none;
-
-    }
-
-    p {
-        position: relative;
-        top: 26%;
-        font-size: 8px;
-        color: rgb(153, 2, 92);
-    }
-</style>
-
 <body>
-
     <div class="main">
-        <h1 align="center">OTP GENERATOR</h1>
+        <h1>OTP GENERATOR</h1>
         <div class="otp">
-            <h3 align="center" id="otp">####</h3>
+            <h3 id="otp">####</h3>
         </div>
-        <div class="input"><input type="number" id="input" placeholder="OTP..."></div>
+        <div class="input">
+            <input type="number" id="input" placeholder="Enter OTP...">
+        </div>
         <button onclick="OTP(999,9999)">Generate OTP</button>
         <button id="submit" onclick="submit()">Submit</button>
-        <h2 align="center" id="result2">Result shows here!!!</h2>
-        <p align="center">by @_Aakash__Ap_</p>
-
-
+        <h2 id="result2">Result shows here!!!</h2>
+        <p>by @_Aakash__Ap_</p>
     </div>
-
 
     <script>
         let otp;
-      
+
         function OTP(min, max) {
-          otp = Math.floor(Math.random() * (max - min + 1)) + min;
-          document.getElementById("otp").innerHTML = otp;
+            otp = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("otp").innerHTML = otp;
         }
-      
+
         function submit() {
-          let input = document.getElementById("input").value;
-      
-          if (input == otp) {
-            document.getElementById("result2").innerHTML = "Login successful...";
-          } else if (input == "") {
-            document.getElementById("result2").innerHTML = "Please enter your OTP!";
-          } else {
-            document.getElementById("result2").innerHTML = "Login Failed!";
-          }
+            let input = document.getElementById("input").value;
+
+            if (input == otp) {
+                document.getElementById("result2").innerHTML = "Login successful...";
+            } else if (input == "") {
+                document.getElementById("result2").innerHTML = "Please enter your OTP!";
+            } else {
+                document.getElementById("result2").innerHTML = "Login Failed!";
+            }
         }
-      </script>
-      
+    </script>
 </body>
 
 </html>
