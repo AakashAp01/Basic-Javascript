@@ -40,9 +40,3 @@ More **mini-projects** for learning and practicing **JavaScript**.
 - **CSS** – Styling and UI improvements  
 - **JavaScript** – Core functionality  
 
----
-
-## 📥 Installation
-1️⃣ Clone the repo  
-```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/js-projects.git
