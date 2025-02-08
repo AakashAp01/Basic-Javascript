@@ -10,7 +10,7 @@ A collection of **fun and useful** JavaScript projects to enhance **problem-solv
 ---
 
 ## 📸 Screenshot
-![Project Preview](https://drive.google.com/uc?export=view&id=WKHign37TYG4XcNOPkummy1hl)
+![Project Preview](https://drive.google.com/uc?export=view&id=1tHx8-I-WKHign37TYG4XcNOPkummy1hl)
 
 ---
 
